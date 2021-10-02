@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body{
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            font-family: 'Calibri, sans-serif';
+            width: 21cm;
+            height: 26.7cm;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            padding-left: 50px;
+            font-size: 35px;
+            font-weight: 100;
+        }
+
+        p {
+
+            font-size: 65px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .pt {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+    <body>
+        <%= for product <- @products do %>
+            <div>
+                <h1 class="pt"><%= gettext("Lieferant/ Supplier :") %></h1>
+                <p ><%= String.upcase(product.supplier) %></p>
+
+
+                <h1><%= gettext("Kampagnen/ Campaign:") %></h1>
+
+                <%= if String.length(product.campaign) > 16 do %>
+                    <p style="font-size: 40px"><%= String.upcase(product.campaign) %></p>
+                <% else %>
+                    <p><%= String.upcase(product.campaign) %></p>
+                <% end %>
+
+                <h1><%= gettext("Land/ Country:") %></h1>
+
+                <p><%= product.country %></p>
+
+                <h1><%= gettext("Stückzahl auf Palette:/ PCS on pallete:") %></h1>
+
+                <p><%= product.number_of_products %></p>
+            </div>
+        <% end %>
+    </body>
+</html>

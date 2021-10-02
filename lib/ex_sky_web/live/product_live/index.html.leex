@@ -1,0 +1,34 @@
+<h1>Listing Products</h1>
+
+<%= f = form_for @changeset, Routes.product_path(@socket, :download),
+  id: "product-form",
+  phx_change: "validate" %>
+
+   <%= label f, :supplier %>
+  <%= text_input f, :supplier %>
+  <%= error_tag f, :supplier %>
+
+
+  <%= label f, :campaign %>
+  <%= text_input f, :campaign %>
+  <%= error_tag f, :campaign %>
+
+  <a href="#" class="btn btn-rounded" phx-click="add-country">Add a country</a>
+  <br>
+  <%= inputs_for f, :pcs_to_countries, fn pcs_f ->  %>
+    <hr>
+    <%= label pcs_f, :country %>
+    <%= select pcs_f, :country, @countries %>
+    <%= error_tag pcs_f, :country %>
+
+    <%= label pcs_f, :number_of_products %>
+    <%= number_input pcs_f, :number_of_products %>
+    <%= error_tag pcs_f, :number_of_products %>
+  <% end %>
+
+
+  <br>
+  <div>
+    <%= submit "Save" %>
+  </div>
+</form>
