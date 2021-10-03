@@ -4,9 +4,8 @@
     id: "product-form",
     phx_change: "validate"
   %>
-    <div>
       <div>
-        <div class="inline-flex mb-6">
+        <div class="mb-8">
           <%= label f, :supplier, class: "inline-flex items-center text-gray-700 text-sm font-bold mr-10" do %>
             <span class="mr-2"><%= gettext("Supplier") %></span>
             <%= text_input f, :supplier, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
@@ -19,25 +18,41 @@
           <% end %>
           <%= submit gettext("Print To PDF"), class: "inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         </div>
-      </div>
+        <table>
+          <tr>
+            <th class="pb-3 pr-3 text-left">
+              <%= gettext("Destination") %>
+            </th>
+            <th class="pb-3 pr-3 text-left">
+              <%= gettext("Products Number") %>
+            </th>
+            <th class="pb-3 pr-3 text-left">
+              <%= gettext("Number of Pages") %>
+            </th>
+          </tr>
+          <%= for pcs_f <- inputs_for(f, :pcs_to_countries) do %>
+            <tr>
+              <%= hidden_input pcs_f, :country %>
+              <%= hidden_input pcs_f, :temp_id %>
+              <td class="w-1/3">
+                <%= label pcs_f, :checked?, class: "inline-flex items-center w-40 mb-1" do %>
+                  <%= checkbox pcs_f, :checked?, class: "form-checkbox" %>
+                  <%= error_tag pcs_f, :checked? %>
+                  <span class="ml-2"><%= pcs_f.data.country %></span>
+                <% end %>
+              </td>
 
-  <div class="block">
-    <div class="mt-2">
-      <%= for pcs_f <- inputs_for(f, :pcs_to_countries) do %>
-        <div class="flex">
-          <%= hidden_input pcs_f, :country %>
-          <%= hidden_input pcs_f, :temp_id %>
-          <%= label pcs_f, :checked?, class: "inline-flex items-center w-40 mb-1" do %>
-            <%= checkbox pcs_f, :checked?, class: "form-checkbox" %>
-            <%= error_tag pcs_f, :checked? %>
-            <span class="ml-2"><%= pcs_f.data.country %></span>
+              <td class="w-1/3">
+                <%= number_input pcs_f, :number_of_products, class: "w-24 p-0 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
+                <%= error_tag pcs_f, :number_of_products %>
+              </td>
+
+              <td class="w-1/3">
+                <%= number_input pcs_f, :number_of_copies, class: "w-24 p-0 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
+                <%= error_tag pcs_f, :number_of_copies %>
+              </td>
+            </tr>
           <% end %>
-
-          <%= number_input pcs_f, :number_of_products, class: "w-24 p-0 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
-          <%= number_input pcs_f, :number_of_copies, class: "w-24 p-0 ml-2 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
-          <%= error_tag pcs_f, :number_of_products %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+        </table>
+      </div>
   </form>
