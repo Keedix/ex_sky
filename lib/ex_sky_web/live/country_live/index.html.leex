@@ -1,4 +1,4 @@
-<h1>Listing Countries</h1>
+
 
 <%= if @live_action in [:new, :edit] do %>
   <%= live_modal ExSkyWeb.CountryLive.FormComponent,
@@ -8,26 +8,23 @@
     country: @country,
     return_to: Routes.country_index_path(@socket, :index) %>
 <% end %>
+<section class="flex flex-col items-center">
+  <span class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-2 rounded focus:outline-none focus:shadow-outline">
+    <%= live_patch "New Country", to: Routes.country_index_path(@socket, :new) %>
+  </span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
+  <table class="table-auto border-collapse border">
+    <tbody id="countries">
+      <%= for {id, name} <- @countries do %>
+        <tr id="country-<%= id %>">
+          <td class="border py-1 px-3" ><%= name %></td>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="countries">
-    <%= for {id, name} <- @countries do %>
-      <tr id="country-<%= id %>">
-        <td><%= name %></td>
+          <td class="border pl-3 pr-3 py-1 hover:cursor-pointer hover:bg-gray-100">
+            <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: id, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-        <td>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: id, data: [confirm: "Are you sure?"] %></span>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<span><%= live_patch "New Country", to: Routes.country_index_path(@socket, :new) %></span>
+</section>

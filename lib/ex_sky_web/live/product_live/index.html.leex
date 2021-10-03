@@ -1,34 +1,43 @@
-<h1>Listing Products</h1>
 
-<%= f = form_for @changeset, Routes.product_path(@socket, :download),
-  id: "product-form",
-  phx_change: "validate" %>
+  <%= f = form_for @changeset, Routes.product_path(@socket, :download),
+    class: "flex flex-col items-center bg-white rounded px-8 pt-6 pb-8 mb-4 w-full",
+    id: "product-form",
+    phx_change: "validate"
+  %>
+    <div>
+      <div>
+        <div class="inline-flex mb-6">
+          <%= label f, :supplier, class: "inline-flex items-center text-gray-700 text-sm font-bold mr-10" do %>
+            <span class="mr-2"><%= gettext("Supplier") %></span>
+            <%= text_input f, :supplier, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+            <%= error_tag f, :supplier %>
+          <% end %>
+          <%= label f, :campaign, class: "inline-flex items-center text-gray-700 text-sm font-bold mr-10" do %>
+            <span class="mr-2"><%= gettext("Campaign") %></span>
+            <%= text_input f, :campaign, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+            <%= error_tag f, :campaign %>
+          <% end %>
+          <%= submit gettext("Print To PDF"), class: "inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      </div>
 
-   <%= label f, :supplier %>
-  <%= text_input f, :supplier %>
-  <%= error_tag f, :supplier %>
+  <div class="block">
+    <div class="mt-2">
+      <%= for pcs_f <- inputs_for(f, :pcs_to_countries) do %>
+        <div class="flex">
+          <%= hidden_input pcs_f, :country %>
+          <%= hidden_input pcs_f, :temp_id %>
+          <%= label pcs_f, :checked?, class: "inline-flex items-center w-40 mb-1" do %>
+            <%= checkbox pcs_f, :checked?, class: "form-checkbox" %>
+            <%= error_tag pcs_f, :checked? %>
+            <span class="ml-2"><%= pcs_f.data.country %></span>
+          <% end %>
 
-
-  <%= label f, :campaign %>
-  <%= text_input f, :campaign %>
-  <%= error_tag f, :campaign %>
-
-  <a href="#" class="btn btn-rounded" phx-click="add-country">Add a country</a>
-  <br>
-  <%= inputs_for f, :pcs_to_countries, fn pcs_f ->  %>
-    <hr>
-    <%= label pcs_f, :country %>
-    <%= select pcs_f, :country, @countries %>
-    <%= error_tag pcs_f, :country %>
-
-    <%= label pcs_f, :number_of_products %>
-    <%= number_input pcs_f, :number_of_products %>
-    <%= error_tag pcs_f, :number_of_products %>
-  <% end %>
-
-
-  <br>
-  <div>
-    <%= submit "Save" %>
+          <%= number_input pcs_f, :number_of_products, class: "w-24 p-0 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
+          <%= number_input pcs_f, :number_of_copies, class: "w-24 p-0 ml-2 max-h-6 #{if !pcs_f.data.checked? do "hidden" end}" %>
+          <%= error_tag pcs_f, :number_of_products %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</form>
+  </form>

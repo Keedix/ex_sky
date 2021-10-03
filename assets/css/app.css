@@ -1,9 +1,11 @@
 /* This file is for your main application CSS */
-@tailwind base;
+@import "tailwindcss/base";
 
-@tailwind components;
+@import "tailwindcss/components";
 
-@tailwind utilities;
+@import "tailwindcss/utilities";
+
+@import "tailwindcss/forms";
 
 /* Alerts and form errors used by phx.new */
 .alert {

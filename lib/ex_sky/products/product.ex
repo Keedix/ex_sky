@@ -9,8 +9,8 @@ defmodule ExSky.Products.Product do
   @primary_key false
   embedded_schema do
     field(:campaign, :string)
-    field(:supplier, :string, default: "vignold")
-    embeds_many(:pcs_to_countries, PcsToCountry)
+    field(:supplier, :string, default: "Vignold")
+    embeds_many(:pcs_to_countries, PcsToCountry, on_replace: :delete)
   end
 
   @doc false

@@ -41,15 +41,24 @@ defmodule ExSky.Products do
 
     with {:ok, products} <- validate_changeset(changeset) do
       assigns =
-        Enum.reduce(products.pcs_to_countries, [], fn pcs_to_country, acc ->
-          assigns = %{
-            supplier: products.supplier,
-            campaign: products.campaign,
-            country: pcs_to_country.country,
-            number_of_products: pcs_to_country.number_of_products
-          }
+        Enum.reduce(products.pcs_to_countries, [], fn
+          %{number_of_products: 0}, acc ->
+            acc
 
-          List.insert_at(acc, -1, assigns)
+          pcs_to_country, acc ->
+            assigns =
+              Enum.map(0..(pcs_to_country.number_of_copies - 1), fn _index ->
+                %{
+                  supplier: products.supplier,
+                  campaign: products.campaign,
+                  country: pcs_to_country.country,
+                  number_of_products: pcs_to_country.number_of_products
+                }
+              end)
+
+            acc
+            |> List.insert_at(-1, assigns)
+            |> List.flatten()
         end)
 
       template =

@@ -10,11 +10,14 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <nav class="flex">
-      <%= link(gettext("Listy Przewozowe"), to: Routes.product_index_path(@conn, :new), class: "p-1 text-red") %>
-      <%= link(gettext("Kraje"), to: Routes.product_index_path(@conn, :new), class: "p-1") %>
-    </nav>
-
+    <ul class="flex text-2xl p-10">
+      <li class="mr-6">
+        <%= link(gettext("Listy Przewozowe"), to: Routes.product_index_path(@conn, :new), class: "text-blue-500 hover:text-blue-800") %>
+      </li>
+      <li class="mr-6">
+        <%= link(gettext("Kraje"), to: Routes.country_index_path(@conn, :index), class: "text-blue-500 hover:text-blue-800") %>
+      </li>
+    </ul>
     <%= @inner_content %>
   </body>
 </html>
