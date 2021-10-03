@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "deploy": "NODE_ENV=production tailwindcss --postcss --minify --input=css/app.css --output=../priv/static/assets/app.css && cd .. && mix assets.deploy && rm -f _build/esbuild"
+    "deploy": "NODE_ENV=production tailwindcss --postcss --minify --input=css/app.css --output=../priv/static/assets/app.css"
   },
   "author": "Artur Uklejewski",
   "license": "ISC"
