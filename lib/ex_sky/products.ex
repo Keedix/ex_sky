@@ -75,7 +75,7 @@ defmodule ExSky.Products do
           displayHeaderFooter: false,
           preferCSSPageSize: true
         },
-        output: &callback.(&1)
+        output: fn path -> callback.(path, products.campaign) end
       )
     end
   end

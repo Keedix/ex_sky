@@ -19,15 +19,14 @@ defmodule ExSkyWeb.Router do
 
     get "/", PageController, :index
 
+    resources "/raport", RaportController, only: [:new, :create]
+
     live "/products/new", ProductLive.Index, :new
     post "/products/download", ProductController, :download
 
     live "/countries", CountryLive.Index, :index
     live "/countries/new", CountryLive.Index, :new
     live "/countries/:id/edit", CountryLive.Index, :edit
-
-    live "/countries/:id", CountryLive.Show, :show
-    live "/countries/:id/show/edit", CountryLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
