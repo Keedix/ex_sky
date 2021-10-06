@@ -5,7 +5,7 @@ export const FileInput = {
 
         // ************************ Drag and drop ***************** //
         let dropArea = document.getElementById("drop-area")
-        console.log(dropArea)
+
             // Prevent default drag behaviors
             ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, preventDefaults, false)
@@ -24,6 +24,9 @@ export const FileInput = {
         // Handle dropped files
         dropArea.addEventListener('drop', handleDrop, false)
 
+        // Handle change input
+        raportFile.addEventListener('change', setFileName, false)
+
         function preventDefaults(e) {
             e.preventDefault()
             e.stopPropagation()
@@ -40,13 +43,16 @@ export const FileInput = {
         }
 
         function handleDrop(e) {
-            console.log("tu", e.dataTransfer.files);
-            // fileInput.files = e.dataTransfer.files;
             raportFile.files = e.dataTransfer.files;
             const splitted = raportFile.value.split('\\');
             const name = splitted[splitted.length - 1];
             fileName.innerHTML = name;
         }
 
+        function setFileName(e) {
+            const splitted = e.target.value.split('\\');
+            const name = splitted[splitted.length - 1];
+            fileName.innerHTML = name;
+        }
     }
 }
