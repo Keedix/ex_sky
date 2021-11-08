@@ -1,0 +1,92 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:15
+msgid "Campaign"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:22
+msgid "Countries"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:24
+msgid "Destination"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:46
+msgid "Kampagnen/ Campaign:"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:54
+msgid "Land/ Country:"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:42
+msgid "Lieferant/ Supplier :"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:30
+msgid "Number of Pages"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:19
+msgid "Print To PDF"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:27
+msgid "Products Number"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:16
+msgid "Raport"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:13
+msgid "Select CSV"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:24
+msgid "Sheet Index"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:58
+msgid "Stückzahl auf Palette:/ PCS on pallete:"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:10
+msgid "Supplier"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:8
+msgid "Upload File"
+msgstr ""
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:19
+msgid "Waybills"
+msgstr ""

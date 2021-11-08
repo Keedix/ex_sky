@@ -3,6 +3,7 @@ defmodule ExSky.Raports do
   The Raports context.
   """
 
+  require Logger
   import Ecto.Query, warn: false
   alias ExSky.Repo
 
@@ -47,9 +48,14 @@ defmodule ExSky.Raports do
       }
     ]
 
-    path
-    |> Parser.parse(opts)
-    |> Elixlsx.write_to_memory("#{filename}_result.xlsx")
+    try do
+      path
+      |> Parser.parse(opts)
+      |> Elixlsx.write_to_memory("#{filename}_result.xlsx")
+    rescue
+      e ->
+        Logger.error("#{inspect(__MODULE__)} failed to parse XSLX, reason: #{inspect(e)}")
+    end
   end
 
   @doc """

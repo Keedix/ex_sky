@@ -11,7 +11,6 @@ defmodule ExSkyWeb.RaportController do
 
   def create(conn, %{"raport" => raport_params}) do
     params_changeset = Raports.change_raport(%Raport{}, raport_params)
-    IO.inspect(params_changeset)
 
     with true <- params_changeset.valid?,
          raport <- Ecto.Changeset.apply_changes(params_changeset),
@@ -21,7 +20,7 @@ defmodule ExSkyWeb.RaportController do
       |> put_resp_header("content-disposition", "attachment; filename=#{file_name}")
       |> send_resp(201, output)
     else
-      false ->
+      _ ->
         {:error, params_changeset}
     end
   end

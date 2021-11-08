@@ -10,7 +10,7 @@
 <% end %>
 <section class="flex flex-col items-center">
   <span class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-2 rounded focus:outline-none focus:shadow-outline">
-    <%= live_patch "New Country", to: Routes.country_index_path(@socket, :new) %>
+    <%= live_patch gettext("New Country"), to: Routes.country_index_path(@socket, :new) %>
   </span>
 
   <table class="table-auto border-collapse border">

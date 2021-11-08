@@ -1,0 +1,132 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: pl\n"
+"Plural-Forms: nplurals=3\n"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:15
+msgid "Campaign"
+msgstr "Kampania"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:22
+msgid "Countries"
+msgstr "Kraje"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:24
+msgid "Destination"
+msgstr "Kierunek"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:46
+msgid "Kampagnen/ Campaign:"
+msgstr "Kampania"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:54
+msgid "Land/ Country:"
+msgstr "Kraj"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:42
+msgid "Lieferant/ Supplier :"
+msgstr "Dostawca"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:30
+msgid "Number of Pages"
+msgstr "Ilość stron"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:19
+msgid "Print To PDF"
+msgstr "Drukuj do PDF"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:27
+msgid "Products Number"
+msgstr "Ilość produktów"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:16
+msgid "Raport"
+msgstr "Raport"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:13
+msgid "Select CSV"
+msgstr "Wybierz plik XSLX"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:23
+msgid "Sheet Index"
+msgstr "Indeks arkuszu"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/product/download.html.eex:58
+msgid "Stückzahl auf Palette:/ PCS on pallete:"
+msgstr "Sztuk na palecie"
+
+#, elixir-format
+#: lib/ex_sky_web/live/product_live/index.html.leex:10
+msgid "Supplier"
+msgstr "Dostawca"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:8
+msgid "Upload File"
+msgstr "Załącz plik"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/layout/root.html.heex:19
+msgid "Waybills"
+msgstr "Listy Przewozowe"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:13
+msgid "Country"
+msgstr "Kraje"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:6
+msgid "Fabric"
+msgstr "Materiał"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:31
+msgid "Height netto"
+msgstr "Wysokość netto"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:37
+msgid "Quantity"
+msgstr "Ilość"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:19
+msgid "Store number"
+msgstr "Numer sklepu"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/_form_options.html.eex:25
+msgid "Width netto"
+msgstr "Szerokość netto"
+
+#, elixir-format
+#: lib/ex_sky_web/templates/raport/form.html.eex:29
+msgid "Column Names (Optional)"
+msgstr "Nazwy Kolumn (Opcjonalne)"
+
+#, elixir-format, fuzzy
+#: lib/ex_sky_web/live/country_live/index.html.leex:13
+msgid "New Country"
+msgstr "Nowy Kraj"

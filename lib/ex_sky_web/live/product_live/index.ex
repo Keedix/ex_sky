@@ -40,15 +40,6 @@ defmodule ExSkyWeb.ProductLive.Index do
     |> assign(:product, %Product{})
   end
 
-  def handle_event("save", %{"product" => product}, socket) do
-    changeset =
-      %Product{}
-      |> Product.changeset(product)
-      |> Map.put(:action, :save)
-
-    {:noreply, assign(socket, :changeset, changeset)}
-  end
-
   def handle_event(
         "validate",
         %{"_target" => ["product", "pcs_to_countries", _index, _]} = params,
